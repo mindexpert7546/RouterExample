@@ -10,14 +10,19 @@ import { ContactComponent } from './contact/contact.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { LaptopComponent } from './laptop/laptop.component';
+import { WatchComponent } from './watch/watch.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'login',pathMatch:'full'},
   {path:'home', component:HomeComponent},
   {path:'login', component:LoginComponent}, 
-  {path:'product', component:ProductComponent},
   {path:'about', component:AboutComponent},
   {path:'contact', component:ContactComponent},
+  {path:'product', component:ProductComponent, children:[
+    {path:'laptop', component:LaptopComponent},
+    {path:'watch', component:WatchComponent},
+  ]},
   {path:'**', component:PageNotFoundComponent}
 ];
 
